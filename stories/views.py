@@ -10,5 +10,14 @@ def detail(request, story_id):
 	s = get_object_or_404(Story, pk=story_id)
 	return render_to_response("stories/detail.html", {'story' :s})
 	
-def comments(request, story_id):
-	return HttpResponse("This will be a listing of all the comments for story %s." % story_id)
+def upvote(request, story_id):
+	s = get_object_or_404(Story, pk=story_id)
+	s.rating += 1
+	s.save()
+	return HttpResponse("You have upvoted story %s." % story_id)
+	
+def downvote(request, story_id):
+	s = get_object_or_404(Story, pk=story_id)
+	s.rating -= 1
+	s.save()
+	return HttpResponse("You have downvoted story %s." % story_id)
