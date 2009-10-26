@@ -77,4 +77,5 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
 	'cs1120.stories'
+	'django.contrib.admin'
 )
