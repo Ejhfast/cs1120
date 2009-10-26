@@ -29,6 +29,14 @@
 			<div id="story">
 				<center><p> {{story.body}}</p></center>
 				<p> votes: {{story.rating}}</p>
+				<p> date: {{story.post_date}}</p>
+				
+				<form action="/posts/{{story.id}}/upvote/" method="post">
+				<input type="submit" value="Up Vote" \>
+				</form>
+				<form action="/posts/{{story.id}}/downvote/" method="post">
+				<input type="submit" value="Down Vote" \>
+				</form>
 			</div>
 			{% endfor %}
 	
