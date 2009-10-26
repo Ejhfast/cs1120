@@ -1,9 +1,40 @@
-{% if latest_story_list %}
-	<ul>
-	{% for story in latest_story_list %}
-		<li> {{story.body }}</li>
-	{% endfor %}
-	</ul>
-{% else %}
-	<p>No stories are available.</p>
-{% endif %}
+<html lang="en">
+	<STYLE type="text/css">
+	#backdrop{
+		padding:0;
+		margin:auto;
+		background-color:#1e1b17;
+	}
+
+	#story {
+		width:850px;
+		color: #000000;
+		background-color:#fff;
+		margin: auto;
+		border: 5px solid #980000;
+	}
+	
+	#space {
+		height:10px;
+		color:#1e1b17;
+	}
+	</STYLE>
+	
+	<body id="backdrop">
+		
+	{% if latest_story_list %}
+		
+			{% for story in latest_story_list %}
+			<div id="space"></div>
+			<div id="story">
+				<center><p> {{story.body}}</p></center>
+				<p> votes: {{story.rating}}</p>
+			</div>
+			{% endfor %}
+	
+		{% else %}
+		<p>No stories are available.</p>
+		{% endif %}
+	
+	</body>
+</html>
