@@ -32,10 +32,10 @@
 				<p> date: {{story.post_date}}</p>
 				
 				<form action="/posts/{{story.id}}/upvote/" method="post">
-				<input type="submit" value="Up Vote" \>
+				<input type="submit" value="Up Vote" style="background-color:#00FF00;"\>
 				</form>
 				<form action="/posts/{{story.id}}/downvote/" method="post">
-				<input type="submit" value="Down Vote" \>
+				<input type="submit" value="Down Vote" style="background-color:#FF0000	;" \>
 				</form>
 			</div>
 			{% endfor %}
