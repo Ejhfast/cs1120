@@ -13,8 +13,9 @@ urlpatterns = patterns('',
     # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
 	(r'^posts/$', 'cs1120.stories.views.index'),
-	(r'^posts/(?P<story_id)\d+)/$', 'cs1120.stories.views.detail'),
-	(r'^posts/(?P<story_id)\d+)/comments$', 'cs1120.stories.views.comments'),
+	(r'^posts/(?P<story_id>\d+)/$', 'cs1120.stories.views.detail'),
+	(r'^posts/(?P<story_id>\d+)/upvote/$', 'cs1120.stories.views.upvote'),
+	(r'^posts/(?P<story_id>\d+)/downvote/$', 'cs1120.stories.views.downvote'),
 
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
