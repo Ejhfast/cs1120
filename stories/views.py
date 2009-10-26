@@ -14,10 +14,10 @@ def upvote(request, story_id):
 	s = get_object_or_404(Story, pk=story_id)
 	s.rating += 1
 	s.save()
-	return HttpResponse("You have upvoted story %s." % story_id)
+	return render_to_response("stories/vote.html", {'story_id' :story_id, 'type' : 'upvote'})
 	
 def downvote(request, story_id):
 	s = get_object_or_404(Story, pk=story_id)
 	s.rating -= 1
 	s.save()
-	return HttpResponse("You have downvoted story %s." % story_id)
+	return render_to_response("stories/vote.html", {'story_id' :story_id, 'type' : 'downvote'})
