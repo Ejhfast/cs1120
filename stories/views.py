@@ -4,7 +4,7 @@ from django.template import Context, loader
 
 def index(request):
 	latest_story_list = Story.objects.all().order_by('-rating')[:20] # take the top 20 rated stories
-	output = ', '.join([s.body for s in latest_story_list])	# seperate each story by a comma
+#	output = ', '.join([s.body for s in latest_story_list])	# seperate each story by a comma
 	template = loader.get_template('stories/index.html')	# load html template for display
 	context = Context({	
 		'latest_story_list' : latest_story_list,			# create new context with the 20 stories
