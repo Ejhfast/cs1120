@@ -18,6 +18,13 @@
 		height:10px;
 		color:#1e1b17;
 	}
+	#voting{
+		display:inline;
+		float:right;
+		margin:0 auto;
+		padding:0;
+		
+	}
 	</STYLE>
 	
 	<body id="backdrop">
@@ -27,16 +34,21 @@
 			{% for story in latest_story_list %}
 			<div id="space"></div>
 			<div id="story">
-				<center><p> {{story.body}}</p></center>
+				
+					<div  id="voting">
+						<div id="space"></div>
+						<form action="/posts/{{story.id}}/upvote/" method="post">
+						<input type="submit" value="Up Vote" style="background-color:#00FF00;"\>
+						</form>
+						<form action="/posts/{{story.id}}/downvote/" method="post">
+						<input type="submit" value="Down Vote" style="background-color:#FF0000	;" \>
+						</form>
+					</div>
+				
+				<p> {{story.body}}</p>
 				<p> votes: {{story.rating}}</p>
 				<p> date: {{story.post_date}}</p>
-				
-				<form action="/posts/{{story.id}}/upvote/" method="post">
-				<input type="submit" value="Up Vote" style="background-color:#00FF00;"\>
-				</form>
-				<form action="/posts/{{story.id}}/downvote/" method="post">
-				<input type="submit" value="Down Vote" style="background-color:#FF0000	;" \>
-				</form>
+			
 			</div>
 			{% endfor %}
 	
