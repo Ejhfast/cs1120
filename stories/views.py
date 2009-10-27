@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from cs1120.stories.models import Story, StoryForm
+from cs1120.stories.models import Story, StoryForm, UserForm
 from django.shortcuts import render_to_response, get_object_or_404
 
 def index(request):
@@ -29,6 +29,16 @@ def newpost(request):
 def addpost(request):
 	s = StoryForm(request.POST)
 	s.save()
-	latest_story_list = Story.objects.all().order_by('-rating')[:20] # take the top 20 rated stories
-	return render_to_response('stories/index.html', {'latest_story_list':latest_story_list}) # loads index.html template with context of latest_story_list and renders the result
+	latest_story_list = Story.objects.all().order_by('-rating')[:20] 
+	return render_to_response('stories/index.html', {'latest_story_list':latest_story_list}) 
+
+def newuser(request):
+	u = UserForm()
+	return render_to_response('stories/adduser.html', {'user_form' : u})
+
+def adduser(request):
+	u = UserForm(request.POST)
+	u.save()
+	latest_story_list = Story.objects.all().order_by('-rating')[:20] 
+	return render_to_response('stories/index.html', {'latest_story_list':latest_story_list}) 
 	

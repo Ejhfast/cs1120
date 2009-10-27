@@ -18,6 +18,8 @@ urlpatterns = patterns('',
 	(r'^posts/(?P<story_id>\d+)/downvote/$', 'cs1120.stories.views.downvote'),
 	(r'^posts/newpost/$', 'cs1120.stories.views.newpost'),
 	(r'^posts/addpost/$','cs1120.stories.views.addpost'),
+	(r'^posts/newuser/$','cs1120.stories.views.newuser'),
+	(r'^posts/adduser/$','cs1120.stories.views.adduser'),
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
 )
