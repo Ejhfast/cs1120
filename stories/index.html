@@ -1,9 +1,0 @@
-{% if latest_story_list %}
-	<ul>
-	{% for story in latest_story_list %}
-		<li> {{story.body }}</li>
-	{% endfor %}
-	</ul>
-{% else %}
-	<p>No stories are available.</p>
-{% endif %}
