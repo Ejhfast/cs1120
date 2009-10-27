@@ -1,0 +1,39 @@
+<html lang="en">
+	<STYLE type="text/css">
+	#backdrop{
+		padding:0;
+		margin:auto;
+		background-color:#1e1b17;
+	}
+
+	#story {
+		width:850px;
+		color: #000000;
+		background-color:#fff;
+		margin: auto;
+		border: 5px solid #980000;
+	}
+	
+	#space {
+		height:10px;
+		color:#1e1b17;
+	}
+	</STYLE>
+	
+	<body id="backdrop">
+		
+	{% if story %}
+		
+			<div id="space"></div>
+			<div id="story">
+				<center><p> {{story.body}}</p></center>
+				<p> votes: {{story.rating}}</p>
+				<p> date: {{story.post_date}}</p>
+			</div>
+	
+		{% else %}
+		<p>Story is not available.</p>
+		{% endif %}
+	
+	</body>
+</html>

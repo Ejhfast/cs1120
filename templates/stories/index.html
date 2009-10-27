@@ -1,0 +1,102 @@
+<html lang="en">
+	<STYLE type="text/css">
+	#backdrop{
+		padding:0;
+		margin:auto;
+		background-color:#ffffff;
+	}
+
+	#header {
+		height:90px;
+		background-color:#980000;
+		margin:auto;
+		font: 300% times, helvetica, arial, sans-serif;	
+		text-align: center;
+		color:#ffffff;
+		
+	}
+	
+	#footer {
+		width:850px;
+		height:50px;
+		margin:auto;
+		font: 300% times, helvetica, arial, sans-serif;	
+		
+	}
+	
+	#story {
+		width:850px;
+		color: #000000;
+		background-color:#fff;
+		margin: auto;
+		border: 3px solid #980000;
+		padding:5px;
+	}
+	
+	#space {
+		height:15px;
+		
+	}
+	#voting{
+		display:inline;
+		float:right;
+		margin:0 auto;
+		padding:0;
+		
+	}
+	</STYLE>
+	<div id="space"></div>	
+
+
+		<div id="header">
+			<form action="/posts/newuser/" method="post" style="float:right">
+				<input type="submit" value="Register"\>
+				</form>
+				<form action="/posts/login/" method="get"style="float:right">
+				<input type="submit" value="Login"\>
+				</form>
+				<div id="space"></div>
+			<center>Overheard at UVa </center>
+			
+		</div>
+		<div id="space"></div>
+	
+	<body id="backdrop">
+		
+	{% if latest_story_list %}
+		
+			{% for story in latest_story_list %}
+			<div id="space"></div>
+			<div id="story">
+				
+					<div  id="voting">
+						<div id="space"></div>
+						<form action="/posts/{{story.id}}/upvote/" method="post">
+						<input type="submit" value="Up Vote"\>
+						</form>
+						<form action="/posts/{{story.id}}/downvote/" method="post">
+						<input type="submit" value="Down Vote" \>
+						</form>
+					</div>
+				
+				<p> {{story.body}}</p>
+				<p> upvotes: {{story.upvotes}}<br>
+				 downvotes: {{story.downvotes}}<br>
+				story id: {{story.id}}<br>
+				 date: {{story.post_date}}</p>
+			
+			</div>
+			{% endfor %}
+	
+		{% else %}
+		<center><p>No stories are available.</p></center>
+		{% endif %}
+	<div id="space"></div>
+	<div id="footer">
+		<form action="/posts/newpost/" method="post">
+		<input type="submit" value="Create a new post!"\>
+		</form>
+	</div>
+	
+	</body>
+</html>

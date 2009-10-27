@@ -1,0 +1,44 @@
+<html lang="en">
+	<STYLE type="text/css">
+	#backdrop{
+		padding:0;
+		margin:auto;
+		background-color:#ffffff;
+	}
+
+	#story {
+		width:850px;
+		color: #000000;
+		background-color:#fff;
+		margin: auto;
+		border: 3px solid #980000;
+		padding:5px;
+	}
+	
+	#space {
+		height:15px;
+		
+	}
+	</STYLE>
+	<META HTTP-EQUIV="refresh" CONTENT="2;URL=http://localhost:8000/posts/">
+	
+	<body id="backdrop">
+		
+		
+	{% if story_id %}
+		<div id="space"></div>
+			<center><p> You {{type}}d story {{story_id}}</p></center>
+		<div id="story">
+			<p> {{story.body}}</p>
+			<p> upvotes: {{story.upvotes}}<br>
+			 downvotes: {{story.downvotes}}<br>
+			 date: {{story.post_date}}</p>
+		</div>
+	
+	{% else %}
+		<p>No stories are available.</p>
+	{% endif %}
+		<div id="space"></div>
+		
+	</body>
+</html>
