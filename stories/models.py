@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms import ModelForm 
 import datetime
 # Create your models here.
 
@@ -13,4 +14,8 @@ class Story(models.Model):
 		
 	def was_posted_today(self):
 		return self.post_date.date() == datetime.date.today()
+
+class StoryForm(ModelForm):
+	class Meta:
+		model = Story
 	

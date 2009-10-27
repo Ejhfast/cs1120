@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from cs1120.stories.models import Story
+from cs1120.stories.models import Story, StoryForm
 from django.shortcuts import render_to_response, get_object_or_404
 
 def index(request):
@@ -22,6 +22,13 @@ def downvote(request, story_id):
 	s.save()
 	return render_to_response("stories/vote.html", {'story_id' :story_id, 'type' : 'downvote', 'story' : s})
 	
-	
 def newpost(request):
-	return render_to_response('stories/addstory.html', {})
+	s = StoryForm()
+	return render_to_response('stories/addstory.html', {'story_form' : s})
+
+def addpost(request):
+	s = StoryForm(request.POST)
+	s.save()
+	latest_story_list = Story.objects.all().order_by('-rating')[:20] # take the top 20 rated stories
+	return render_to_response('stories/index.html', {'latest_story_list':latest_story_list}) # loads index.html template with context of latest_story_list and renders the result
+	
