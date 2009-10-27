@@ -21,3 +21,7 @@ def downvote(request, story_id):
 	s.rating -= 1
 	s.save()
 	return render_to_response("stories/vote.html", {'story_id' :story_id, 'type' : 'downvote', 'story' : s})
+	
+	
+def newpost(request):
+	return render_to_response('stories/addstory.html', {})
