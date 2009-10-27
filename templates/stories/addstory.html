@@ -1,17 +1,23 @@
 <html lang="en">
-	<STYLE type="text/css">
+	<STYLE type="text/css">	
 	#backdrop{
 		padding:0;
 		margin:auto;
-		background-color:#1e1b17;
+		background-color:#ffffff;
 	}
-	
-	#newpost {
+
+	#story {
 		width:850px;
 		color: #000000;
 		background-color:#fff;
 		margin: auto;
-		border: 5px solid #003399;
+		border: 3px solid #980000;
+		padding:5px;
+	}
+	
+	#space {
+		height:15px;
+		
 	}
 	</STYLE>
 
@@ -19,7 +25,7 @@
 
 
 	<div id="space"></div>
-	<div id="newpost">
+	<div id="story">
 New Post:
 <form method="Post" action ="/posts/addpost/">
 {{ story_form }}

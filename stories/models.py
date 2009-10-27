@@ -6,7 +6,8 @@ import datetime
 
 class Story(models.Model):
 	body = models.CharField(max_length=500)
-	rating = models.IntegerField()
+	upvotes = models.IntegerField(default=0)
+	downvotes = models.IntegerField(default=0)
 	orig_poster = models.CharField(max_length=15)
 	post_date = models.DateTimeField('date published', auto_now=True)
 	
@@ -19,6 +20,7 @@ class Story(models.Model):
 class StoryForm(ModelForm):
 	class Meta:
 		model = Story
+		fields = ('body',)
 
 class UserForm(ModelForm):
 	class Meta:
