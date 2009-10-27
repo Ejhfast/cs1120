@@ -1,0 +1,28 @@
+<html lang="en">
+	<STYLE type="text/css">
+	#backdrop{
+		padding:0;
+		margin:auto;
+		background-color:#1e1b17;
+	}
+	
+	#newpost {
+		width:850px;
+		color: #000000;
+		background-color:#fff;
+		margin: auto;
+		border: 5px solid #003399;
+	}
+	</STYLE>
+
+	<body id="backdrop">
+
+
+	<div id="space"></div>
+	<div id="newpost">
+New Post:
+<form method="Post" action ="/posts/adduser/">
+{{ user_form }}
+<input type="submit" value="submit">
+</form>
+</html>
