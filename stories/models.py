@@ -6,7 +6,7 @@ class Story(models.Model):
 	body = models.CharField(max_length=500)
 	rating = models.IntegerField()
 	orig_poster = models.CharField(max_length=15)
-	post_date = models.DateTimeField('date published')
+	post_date = models.DateTimeField('date published', auto_now=True)
 	
 	def __unicode__(self):
 		return self.body
