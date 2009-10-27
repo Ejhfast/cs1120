@@ -20,6 +20,7 @@ urlpatterns = patterns('',
 	(r'^posts/addpost/$','cs1120.stories.views.addpost'),
 	(r'^posts/newuser/$','cs1120.stories.views.newuser'),
 	(r'^posts/adduser/$','cs1120.stories.views.adduser'),
-    # Uncomment the next line to enable the admin:
+    (r'^posts/login/$', 'django.contrib.auth.views.login'),
+	# Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
 )
