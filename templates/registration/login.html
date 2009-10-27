@@ -1,0 +1,42 @@
+<html lang="en">
+	<STYLE type="text/css">
+	#backdrop{
+		padding:0;
+		margin:auto;
+		background-color:#1e1b17;
+	}
+	
+	#newpost {
+		width:850px;
+		color: #000000;
+		background-color:#fff;
+		margin: auto;
+		border: 5px solid #003399;
+	}
+	</STYLE>
+
+	<body id="backdrop">
+
+
+	<div id="space"></div>
+	<div id="newpost">
+	{% if form.errors %}
+<p>Your username and password didn't match. Please try again.</p>
+{% endif %}
+
+<form method="post" action="{% url django.contrib.auth.views.login %}">
+<table>
+<tr>
+    <td>{{ form.username.label_tag }}</td>
+    <td>{{ form.username }}</td>
+</tr>
+<tr>
+    <td>{{ form.password.label_tag }}</td>
+    <td>{{ form.password }}</td>
+</tr>
+</table>
+
+<input type="submit" value="login" />
+<input type="hidden" name="next" value="{{ next }}" />
+</form>
+</html>
